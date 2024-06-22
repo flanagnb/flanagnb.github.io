@@ -1,1 +1,34 @@
-placeholder for github.io site
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nate Flanagan</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script>
+      // TODO - Maybe reimplement this in React
+      function updateWelcomeBanner() {
+        const LAST_VISIT_DATE = "lastVisitDate";
+        let welcomeBanner = document.getElementById("welcome-banner");
+
+        let lastVisited = $.cookie(LAST_VISIT_DATE);
+        let today = new Date();
+        let cookieExpirationYear = new Date();
+        cookieExpirationYear.setFullYear(today.getFullYear() + 1)
+        if (!lastVisited) {
+          welcomeBanner.innerText = "Welcome to my homepage!";
+        } else {
+          welcomeBanner.innerText = "Welcome back! Your last visit was " + lastVisited;
+        }
+
+        $.cookie(LAST_VISIT_DATE, today.toUTCString(), {"expires": 365});
+      }
+    </script>
+  </head>
+  <body>
+    <span id="welcome-banner">Welcome</span>
+  </body>
+  <script>
+    updateWelcomeBanner();
+  </script>
+</html>
