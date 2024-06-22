@@ -23,12 +23,21 @@
 
         $.cookie(LAST_VISIT_DATE, today.toUTCString(), {"expires": 365});
       }
+
+      function updateJoke() {
+        fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit")
+          .then(response => response.json())
+          .then(response_json => $("#joke-container").html(response_json.joke))
+      }
     </script>
   </head>
   <body>
     <span id="welcome-banner">Welcome</span>
+    <div id="joke-container"></div>
   </body>
   <script>
     updateWelcomeBanner();
+    updateJoke();
+    setInterval(updateJoke, 60000);
   </script>
 </html>
