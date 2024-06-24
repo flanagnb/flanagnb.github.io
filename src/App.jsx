@@ -2,7 +2,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 import BioPage from './BioPage.jsx';
-import JSToys from './JSToys.jsx';
+import JavascriptExamples from './JavascriptExamples.jsx';
 import WelcomeBanner from './WelcomeBanner.jsx';
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
           <BioPage/>
         </Tab>
         <Tab eventKey="js" title="Javascript Examples">
-          <JSToys/>
+          <JavascriptExamples/>
         </Tab>
       </Tabs>
     </>
