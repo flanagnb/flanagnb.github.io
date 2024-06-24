@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import WelcomeBanner from './WelcomeBanner.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-ReactDOM.createRoot(document.getElementById('welcome-banner')).render(
+ReactDOM.createRoot(document.getElementById('main')).render(
   <React.StrictMode>
-    <WelcomeBanner/>
+    <App/>
   </React.StrictMode>,
-)
+);
