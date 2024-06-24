@@ -4,40 +4,21 @@
     <meta charset="utf-8">
     <title>Nate Flanagan</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
-      // TODO - Maybe reimplement this in React
-      function updateWelcomeBanner() {
-        const LAST_VISIT_DATE = "lastVisitDate";
-        let welcomeBanner = document.getElementById("welcome-banner");
-
-        let lastVisited = $.cookie(LAST_VISIT_DATE);
-        let today = new Date();
-        let cookieExpirationYear = new Date();
-        cookieExpirationYear.setFullYear(today.getFullYear() + 1)
-        if (!lastVisited) {
-          welcomeBanner.innerText = "Welcome to my homepage!";
-        } else {
-          welcomeBanner.innerText = "Welcome back! Your last visit was " + lastVisited;
-        }
-
-        $.cookie(LAST_VISIT_DATE, today.toUTCString(), {"expires": 365});
-      }
-
       function updateJoke() {
-        fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit")
+        fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single")
           .then(response => response.json())
           .then(response_json => $("#joke-container").html(response_json.joke))
       }
     </script>
   </head>
   <body>
-    <span id="welcome-banner">Welcome</span>
+    <span id="welcome-banner"><script type="module" src="/src/main.jsx"></script></span>
     <div id="joke-container"></div>
     <a href="/waph.html">Some of the work for WAPH class</a>
   </body>
   <script>
-    updateWelcomeBanner();
     updateJoke();
     setInterval(updateJoke, 60000);
   </script>
