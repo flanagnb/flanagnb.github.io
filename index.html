@@ -11,15 +11,6 @@
           .then(response => response.json())
           .then(response_json => $("#joke-container").html(response_json.joke))
       }
-
-      function updateDigitalClock() {
-        const clockElement = document.getElementById("digital-clock");
-        //if (!clockElement) {
-        //  return;
-        //}
-        let timeFormatter = new Intl.DateTimeFormat("en-US", {"timeStyle": "short"});
-        clockElement.innerText = timeFormatter.format(new Date());
-      }
     </script>
   </head>
   <body>
@@ -29,8 +20,6 @@
   </body>
   <script>
     updateJoke();
-    setTimeout(updateDigitalClock, 200);  // TODO - this should probably be moved to the react part
     setInterval(updateJoke, 60000);
-    setInterval(updateDigitalClock, 60000);
   </script>
 </html>
