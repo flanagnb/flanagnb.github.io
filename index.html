@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Nate Flanagan</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://waph-uc.github.io/clock.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
@@ -11,4 +12,23 @@
       <script type="module" src="/src/main.jsx"></script>
     </main>
   </body>
+  <script>
+    function setUpClock() {
+      let canvas = $("#analog-clock")[0];
+      let ctx = canvas.getContext("2d");
+      let radius = (canvas.height / 2);
+      ctx.translate(radius, radius);
+      radius = radius * 0.9;
+
+      function drawClock() {
+        drawFace(ctx, radius);
+        drawNumbers(ctx, radius);
+        drawTime(ctx, radius);
+      }
+
+      setInterval(drawClock, 1000);
+    }
+
+    setTimeout(setUpClock, 200);
+  </script>
 </html>
