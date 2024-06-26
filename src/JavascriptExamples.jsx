@@ -1,6 +1,36 @@
 import { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const timeFormatter = new Intl.DateTimeFormat("en-US", {"timeStyle": "short"});
+
+function AgeGuesser() {
+  const [name, setName] = useState(null);
+  const [age, setAge] = useState(null);
+
+  function guessAge(name) {
+    fetch(`https://api.agify.io/?name=${name}`)
+      .then(response => response.json())
+      .then(result => setAge(result.age));
+  }
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    guessAge(name);
+  }
+
+  return (
+    <>
+      <input type="text" id="name" onChange={handleNameChange}/>
+      <Button variant="primary" size="lg" onClick={handleSubmit} disabled={!Boolean(name)}>
+        Guess Your Age
+      </Button>
+      <span id="age-guess">{age !== null ? `We guess your age to be ${age}` : ""}</span>
+    </>
+  )
+}
 
 function DigitalClock() {
   const [time, setTime] = useState(timeFormatter.format(new Date()));
@@ -44,6 +74,7 @@ export default function JavascriptExamples() {
         <DigitalClock/>
       </div>
       <JokeContainer/>
+      <AgeGuesser/>
     </>
   )
 }
