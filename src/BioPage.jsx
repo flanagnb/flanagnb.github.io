@@ -1,8 +1,19 @@
+import { useState } from 'react';
+
+function ToggleableEmail({email}) {
+  const [shown, setShown] = useState(false);
+
+  return <div id="email" onClick={() => setShown(!shown)}>{shown ? `${email} (click again to hide)` : "Show my email"}</div>
+}
+
 export default function BioPage() {
   return (
     <>
-    <h1>Nate Flanagan</h1>
-    <img src="/headshot.png"/>
+    <div id="bio-header">
+      <h1>Nate Flanagan</h1>
+      <img src="/headshot.png"/>
+      <ToggleableEmail email="flanagnb@mail.uc.edu"/>
+    </div>
     <div id="education">
       <h2>Education</h2>
       <p>Bachelor of Science in Computer Science from Northern Kentucky University, graduated 2022.</p>
