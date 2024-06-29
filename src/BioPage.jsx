@@ -22,7 +22,7 @@ export default function BioPage() {
       <h2>Education</h2>
       <ul id="education-list" className="bio-list">
         <li>Bachelor of Science in Computer Science from Northern Kentucky University, graduated 2022.</li>
-        <li>Currently studying for a Master's of Science in Computer Science from the University of Cincinnati. You can see a description of some of the work for my current class <a href="/waph.html">here</a></li>
+        <li>Currently studying for a Master&apos;s of Science in Computer Science from the University of Cincinnati. You can see a description of some of the work for my current class <a href="/waph.html">here</a></li>
       </ul>
     </div>
     <div id="professional-certificates">
@@ -51,7 +51,7 @@ export default function BioPage() {
             <li>Changed system configuration and custom frontend components thorugh an agile release process.</li>
             <li>Investigated code and declarative automation tools to write initial bug analyses for developer squads</li>
             <li>Created and updated standard Salesforce reports and provided other reporting workarounds when needed</li>
-            <li>Updated users' access after verifying propriety</li>
+            <li>Updated users&apos; access after verifying propriety</li>
             <li>Ensured data integrity and loaded records into the system with spreadsheets</li>
             <li>Updated locked fields after determining whether it was appropriate</li>
             <li>Answered questions from users</li>
