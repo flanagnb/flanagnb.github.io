@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './BioPage.css';
+
 function ToggleableEmail({email}) {
   const [shown, setShown] = useState(false);
 
@@ -10,23 +12,29 @@ export default function BioPage() {
   return (
     <>
     <div id="bio-header">
-      <h1>Nate Flanagan</h1>
-      <img src="/headshot.png"/>
-      <ToggleableEmail email="flanagnb@mail.uc.edu"/>
+      <div id="centered-content" style={{"textAlign": "center"}}>
+        <h1>Nate Flanagan</h1>
+        <img src="/headshot.png"/>
+        <ToggleableEmail email="flanagnb@mail.uc.edu"/>
+      </div>
     </div>
     <div id="education">
       <h2>Education</h2>
-      <p>Bachelor of Science in Computer Science from Northern Kentucky University, graduated 2022.</p>
-      <p>Currently studying for a Master's of Science in Computer Science from the University of Cincinnati. You can see a description of some of the work for my current class <a href="/waph.html">here</a></p>
+      <ul id="education-list" className="bio-list">
+        <li>Bachelor of Science in Computer Science from Northern Kentucky University, graduated 2022.</li>
+        <li>Currently studying for a Master's of Science in Computer Science from the University of Cincinnati. You can see a description of some of the work for my current class <a href="/waph.html">here</a></li>
+      </ul>
     </div>
     <div id="professional-certificates">
       <h2>Professional Certificates</h2>
-      <p>Salesforce Certified Administrator: 11/2021 - Present</p>
-      <p>Salesforce Certified App Builder: 6/2022 - Present</p>
+      <ul id="certs-list" className="bio-list">
+        <li>Salesforce Certified Administrator: 11/2021 - Present</li>
+        <li>Salesforce Certified App Builder: 6/2022 - Present</li>
+      </ul>
     </div>
     <div id="skills">
       <h2>Skills</h2>
-      <ul id="skills-list">
+      <ul id="skills-list" className="bio-list">
         <li>Python and backend Django</li>
         <li>Java</li>
         <li>C++</li>
@@ -36,7 +44,7 @@ export default function BioPage() {
     </div>
     <div id="work-experience">
       <h2>Work Experience</h2>
-      <dl id="work-experience-list">
+      <dl id="work-experience-list" className="bio-list">
         <dt>Salesforce Support, Fidelity Investments through Strada Education Network: 8/2020 - 12/2022</dt>
         <dd>
           <ul>

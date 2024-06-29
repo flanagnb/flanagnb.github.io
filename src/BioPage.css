@@ -1,0 +1,10 @@
+.bio-list {
+  margin-top: 2%;
+}
+
+#bio-header {
+  margin-bottom: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
